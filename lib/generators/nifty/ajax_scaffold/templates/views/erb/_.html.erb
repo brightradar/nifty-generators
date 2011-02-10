@@ -1,0 +1,20 @@
+<table>
+  <tbody>
+  <tr>
+  <%- for attribute in model_attributes -%>
+    <th><%= attribute.human_name.titleize %></th>
+  <%- end -%>
+  </tr>
+  
+  <%% for <%= instance_name %> in @<%= instances_name %> %>
+    <tr>
+    <%- for attribute in model_attributes -%>
+      <td><%%= <%= instance_name %>.<%= attribute.name %> %></td>
+    <%- end -%>
+      <td><%%= link_to "Edit", <%= item_path :action => :edit %> %></td>
+      <td><%%= link_to "Destroy", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <%% end %>
+  
+  </tbody>
+</table>
